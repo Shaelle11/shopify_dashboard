@@ -27,39 +27,84 @@
         </form>
       </div>
       <div class="notification">
-        <div class="contain-bell" onclick="myDropdown()">
+        <div aria-haspopup="true" aria-expanded="false" id="notification-bell" class="contain-bell">
             <div class="bell"></div>
-            <div id="notification-message" class="notification_message">
-             <div>
+            <div aria-label="Notifications" tabindex="-1" role="menu" id="notification-message" class="notification_message">
+             <div class="alerts">
               <h4>Alerts</h4>
              <div class="alert-icons">
               <div class="funnel-icon">
- <span class="funnel"></span>
- <span class="funnel2"></span>
- <span class="funnel3"></span>
-
               </div>
              
              <div class="check"></div>
              </div>
              </div>
-            <div class="message_contain"> <a class="message" href="#">Alerts about your store and account will show here </a></div>
+            <div class="message_contain"> <p class="message" >Alerts about your store and account will show here </p></div>
             </div>
         </div>
-<div class="user">
+<div class="user" id="user-name">
+  <div class="user_contain">
     <div class="user_name">
         Davii Collections
     </div>
     <div class="user_initials">
-        DS
+        DC 
+    </div>
+  </div>
+    <div class="user_initials_res">
+      DC
     </div>
 </div>
-<div class="user_initials_res">
-  DS
+<div id="profile" class="profile_view">
+<div class="profile_container">
+ <div class="profile_name">
+  <div class="user_initials">
+    DC 
 </div>
+  <div class="user_profile_name">
+    Davii Collections
+</div>
+ </div>
+ <div class="downward_arrow"></div>
+</div>
+<div class="profile_container2">
+  <div class="home"></div>
+  <p>All stores</p>
+</div>
+<div class="profile_items">
+  <div class="profile_item"><p>Help Center</p></div>
+  <div class="profile_item"><p>Changelog</p></div>
+  <div class="profile_item"><p>Community forums</p></div>
+  <div class="profile_item"><p>Hire a Shopify Partner</p></div>
+  <div class="profile_item"><p>Keyboard shortcuts</p></div>
+</div>
+<div class="user_details">
+  <h4>David Micheal</h4>
+  <p>davidmicheal@gmail.com</p>
+</div>
+<div class="profile_item_set"><p>Manage account</p></div>
+<div class="profile_item_set"><p>Log out</p></div>
+</div>
+</div>
+
       </div>
     </nav>
   </header>
+  <section class="hero">
+   <div>
+    <div>
+      <div class="subscribe" id="alert-subscription" role="alert">
+        <div class="subscription_message">
+          <p>Extend your trial for $1/month for 3 months on select plans.</p>
+        </div>
+        <button class="cancel-button" onclick="closeAlert()" aria-label="close-alert"></button>
+      </div>
+    </div>
+    <div>
+
+    </div>
+   </div>
+  </section>
 
   <script src="./app.js"></script>
   </body>
