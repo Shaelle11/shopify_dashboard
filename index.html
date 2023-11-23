@@ -28,7 +28,7 @@
       </div>
       <div class="notification">
         <div aria-haspopup="true" aria-expanded="false" id="notification-bell" class="contain-bell">
-            <div class="bell"></div>
+            <button class="bell"></button>
             <div aria-label="Notifications" tabindex="-1" role="menu" id="notification-message" class="notification_message">
              <div class="alerts">
               <h4>Alerts</h4>
@@ -36,25 +36,25 @@
               <div class="funnel-icon">
               </div>
              
-             <div class="check"></div>
+             <button class="check"></button>
              </div>
              </div>
             <div class="message_contain"> <p class="message" >Alerts about your store and account will show here </p></div>
             </div>
         </div>
 <div class="user" id="user-name">
-  <div class="user_contain">
+  <button class="user_contain">
     <div class="user_name">
         Davii Collections
     </div>
     <div class="user_initials">
         DC 
     </div>
-  </div>
-    <div class="user_initials_res">
+  </button>
+    <button class="user_initials_res">
       DC
-    </div>
-</div>
+    </button>
+  </div>
 <div id="profile" class="profile_view">
 <div class="profile_container">
  <div class="profile_name">
@@ -91,17 +91,19 @@
     </nav>
   </header>
   <section class="hero">
-   <div>
-    <div>
+   <div class="hero-content">
       <div class="subscribe" id="alert-subscription" role="alert">
         <div class="subscription_message">
           <p>Extend your trial for $1/month for 3 months on select plans.</p>
+          
+        <div class="sub_right">
+          <button class="select_plan">Select Plan</button>
+          <button class="cancel-button" onclick="closeAlert()" aria-label="close-alert"></button>
         </div>
-        <button class="cancel-button" onclick="closeAlert()" aria-label="close-alert"></button>
+        </div>
+        <button class="select_plan_res">Select Plan</button>
       </div>
     </div>
-    <div>
-
     </div>
    </div>
   </section>
