@@ -1,113 +1,267 @@
-
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shopify Admin</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-   <link rel="stylesheet" href="./app.css">
 
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopify Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="./app.css">
+
+</head>
+
+<body>
   <header>
     <nav>
-        <a rel="nonreferrer noopener" href="https://www.shopify.com" target="_blank">
-            <div class="logo"></div>
-            <div class="smaller-logo"></div>
-        </a>
+      <a rel="nonreferrer noopener" href="https://www.shopify.com" target="_blank">
+        <div class="logo"></div>
+        <div class="smaller-logo"></div>
+      </a>
       <div class="search">
         <form class="search_form" action="#">
-            <div class="search_icon"> 
-            </div>
-            <input type="text"
-                   placeholder="Search"
-                   aria-label="Enter search term"
-                   name="search">    
+          <div class="search_icon">
+          </div>
+          <input type="text" placeholder="Search" aria-label="Enter search term" name="search">
         </form>
       </div>
       <div class="notification">
-        <div aria-haspopup="true" aria-expanded="false" id="notification-bell" class="contain-bell">
-            <button class="bell"></button>
-            <div aria-label="Notifications" tabindex="-1" role="menu" id="notification-message" class="notification_message">
-             <div class="alerts">
-              <h4>Alerts</h4>
-             <div class="alert-icons">
-              <div class="funnel-icon">
+        <div aria-controls="Notifications-message" aria-haspopup="true" aria-expanded="false" id="notification-bell"
+          class="contain-bell">
+          <button aria-label="notification-bell" class="bell"></button>
+          <div aria-label="notifications " aria-labelledby="Notification-bell" tabindex="-1" role="menu"
+            id="notification-message" class="notification_message">
+            <div class="alerts">
+              <h4 role="Alert">Alerts</h4>
+              <div class="alert-icons">
+                <div class="funnel-icon">
+                </div>
+
+                <button role="checkbox" class="check"></button>
               </div>
-             
-             <button class="check"></button>
-             </div>
-             </div>
-            <div class="message_contain"> <p class="message" >Alerts about your store and account will show here </p></div>
             </div>
+            <div class="message_contain">
+              <p class="message">Alerts about your store and account will show here </p>
+            </div>
+          </div>
         </div>
-<div class="user" id="user-name">
-  <button class="user_contain">
-    <div class="user_name">
-        Davii Collections
-    </div>
-    <div class="user_initials">
-        DC 
-    </div>
-  </button>
-    <button class="user_initials_res">
-      DC
-    </button>
-  </div>
-<div id="profile" class="profile_view">
-<div class="profile_container">
- <div class="profile_name">
-  <div class="user_initials">
-    DC 
-</div>
-  <div class="user_profile_name">
-    Davii Collections
-</div>
- </div>
- <div class="downward_arrow"></div>
-</div>
-<div class="profile_container2">
-  <div class="home"></div>
-  <p>All stores</p>
-</div>
-<div class="profile_items">
-  <div class="profile_item"><p>Help Center</p></div>
-  <div class="profile_item"><p>Changelog</p></div>
-  <div class="profile_item"><p>Community forums</p></div>
-  <div class="profile_item"><p>Hire a Shopify Partner</p></div>
-  <div class="profile_item"><p>Keyboard shortcuts</p></div>
-</div>
-<div class="user_details">
-  <h4>David Micheal</h4>
-  <p>davidmicheal@gmail.com</p>
-</div>
-<div class="profile_item_set"><p>Manage account</p></div>
-<div class="profile_item_set"><p>Log out</p></div>
-</div>
-</div>
+        <div class="user" id="user-name" aria-haspopup="true" aria-expanded="false" aria-controls="profile">
+          <button class="user_contain">
+            <div class="user_name">
+              Davii Collections
+            </div>
+            <div class="user_initials">
+              DC
+            </div>
+          </button>
+          <button class="user_initials_res">
+            DC
+          </button>
+        </div>
+        <a id="profile" class="profile_view">
+          <div role="menuitem" class="profile_container">
+            <div class="profile_name">
+              <div class="user_initials">
+                DC
+              </div>
+              <div class="user_profile_name">
+                Davii Collections
+              </div>
+            </div>
+            <div class="downward_arrow"></div>
+          </div>
+          <div role="menu-item" class="profile_container2">
+            <div class="home"></div>
+            <p>All stores</p>
+          </div>
+          <div role="menuitem" class="profile_items">
+            <li role="menuitem" class="profile_item"><button>Help Center</button></li>
+            <li role="menuitem" class="profile_item"><button>Changelog</button></li>
+            <li role="menuitem" class="profile_item"><button>Community Forums</button></li>
+            <li role="menuitem" class="profile_item"><button>Hire a Shopify Partner</button></li>
+            <li role="menuitem" class="profile_item"><button>Keyboard Shortcuts</button></li>
+          </div>
+          <button class="user_details">
+            <h4>David Micheal</h4>
+            <p>davidmicheal@gmail.com</p>
+          </button>
+          <li class="profile_item_set"><button>Manage account</button></li>
+          <li class="profile_item_set"><button>Log out</button></li>
+        </div>
+      </a>
 
       </div>
     </nav>
   </header>
   <section class="hero">
-   <div class="hero-content">
+    <div class="hero-content">
       <div class="subscribe" id="alert-subscription" role="alert">
         <div class="subscription_message">
           <p>Extend your trial for $1/month for 3 months on select plans.</p>
-          
-        <div class="sub_right">
-          <button class="select_plan">Select Plan</button>
-          <button class="cancel-button" onclick="closeAlert()" aria-label="close-alert"></button>
-        </div>
+
+          <div class="sub_right">
+            <button aria-label="Select Plan" class="select_plan">Select Plan</button>
+            <button aria-labelledby="Remove Subscription" aria-label="Remove Subscription" aria-controls="cancel-button"
+              class="cancel-button" onclick="closeAlert()" aria-label="close-alert"></button>
+          </div>
         </div>
         <button class="select_plan_res">Select Plan</button>
       </div>
+      <div aria-hidden="true" role="menu" class="Setup_guide" id="setup_guide">
+        <div class="first_child">
+          <div class="Setup_text">
+            <h4>Setup Guide</h4>
+            <p>Use this personalized guide to get your store up and running.</p>
+          </div>
+          <button id="drop_btn" aria-labelledby="Setup Guide" aria-label="dropdown button" class="drop_page_btn"
+            onclick="switchImage()"></button>
+        </div>
+
+        <div class="progress_monitor">
+          <p id="progress_text" class="progress_text">1/5 Completed</p>
+          <div id="progress" class="progress">
+            <div id="progressbar" class="progressbar"></div>
+          </div>
+        </div>
+        <div aria-haspopup="true" aria-hidden="true" aria-labelledby="setup_guide" aria-label="setup menu" role="menu" id="Setup_menu" class="Setup_menu">
+         
+          <div  aria-labelledby="Setup_menu" aria-label="menu-items" role="menuitem" class="setupmenu-item">
+            <button class="menuitem" id="drop_menu1" aria-label="menu-item" role="menubar" aria-labelledby="menu-item"  onclick="toggleDropdown('menucontents1')">
+            <div class="checkbox">
+
+            </div>
+              <span class="check_text"> Customize your online store </span>
+            </button>
+
+            <div class="menu_contents" id="menucontents1" >
+              <div class="menu_title">
+                <div class="checkbox loading" onclick="">
+              
+                </div>
+                <span class="check_text"> Customize your online store </span>
+              </div>
+              <div class="menu_content">
+                <p>
+                  Choose a theme and add your logo, colors, and images to reflect your brand. <span><a
+                      href="https://help.shopify.com/en/manual/online-store/themes/customizing-themes">Learn
+                      More</a></span>
+                </p>
+                <div class="menu_img"></div>
+              </div>
+            </div>
+          </div>
+          <div aria-labelledby="Setup_menu" aria-label="menu-items" role="menuitem" class="setupmenu-item">
+         
+            <button class="menuitem" id="drop_menu2" aria-label="menu-item" role="menubar" aria-labelledby="menu-item"  onclick="toggleDropdown('menucontents2')">
+              <div id="imageCheckbox" class="checkbox" data-current-image="initial" onclick="handleImageClick()">
+                <div id="loadinganimate" class="loading"></div>
+            </div>
+              <span class="check_text"> Customize your online store </span>
+            </button>
+            <!-- Dropdown Content -->
+            <div class="menu_contents" id="menucontents2">
+              <div class="menu_title">
+                <!-- Round Checkbox in Dropdown -->
+                <div id="dropdownCheckbox" class="checkbox" data-checked="false" onclick="handleCheckboxClick(this)"></div>
+                <span class="check_text"> Customize your online store </span>
+              </div>
+              <div class="menu_content">
+                <div class="menu_content_left">
+                  <p>
+                    Choose a theme and add your logo, colors, and images to reflect your brand
+                  </p>
+                  <a href="https://help.shopify.com/en/manual/online-store/themes/customizing-themes">
+                    Learn More</a>
+                </div>
+                <div class="menu_img"></div>
+              </div>
+            </div>
+          </div>
+          <div  aria-labelledby="Setup_menu" aria-label="menu-items" role="menuitem" class="setupmenu-item">
+            <button class="menuitem" id="drop_menu3" aria-label="menu-item" role="menubar" aria-labelledby="menu-item"  onclick="toggleDropdown('menucontents3')">
+              <div class="checkbox loading" onclick="">
+              
+              </div>
+              <span class="check_text"> Customize your online store </span>
+            </button>
+
+            <div class="menu_contents" id="menucontents3" >
+              <div class="menu_title">
+                <div class="checkbox loading" onclick="">
+              
+                </div>
+                <span class="check_text"> Customize your online store </span>
+              </div>
+              <div class="menu_content">
+                <p>
+                  Choose a theme and add your logo, colors, and images to reflect your brand. <span><a
+                      href="https://help.shopify.com/en/manual/online-store/themes/customizing-themes">Learn
+                      More</a></span>
+                </p>
+                <div class="menu_img"></div>
+              </div>
+            </div>
+          </div>
+          <div  aria-labelledby="Setup_menu" aria-label="menu-items" role="menuitem" class="setupmenu-item">
+            <button class="menuitem" id="drop_menu4" aria-label="menu-item" role="menubar" aria-labelledby="menu-item"  onclick="toggleDropdown('menucontents4')">
+              <div class="checkbox loading" onclick="">
+              
+              </div>
+              <span class="check_text"> Customize your online store </span>
+            </button>
+
+            <div class="menu_contents" id="menucontents4" >
+              <div class="menu_title">
+                <div class="checkbox loading" onclick="">
+              
+                </div>
+                <span class="check_text"> Customize your online store </span>
+              </div>
+              <div class="menu_content">
+                <p>
+                  Choose a theme and add your logo, colors, and images to reflect your brand. <span><a
+                      href="https://help.shopify.com/en/manual/online-store/themes/customizing-themes">Learn
+                      More</a></span>
+                </p>
+                <div class="menu_img"></div>
+              </div>
+            </div>
+          </div>
+          <div  aria-labelledby="Setup_menu" aria-label="menu-items" role="menuitem" class="setupmenu-item">
+            <button class="menuitem" id="drop_menu5" aria-label="menu-item" role="menubar" aria-labelledby="menu-item"  onclick="toggleDropdown('menucontents5')">
+              <div class="checkbox loading" onclick="">
+              
+              </div>
+                </svg>
+              </label>
+              <span class="check_text"> Customize your online store </span>
+            </button>
+
+            <div class="menu_contents" id="menucontents5" >
+              <div class="menu_title">
+                <div class="checkbox loading" onclick="">
+              
+                </div>
+                <span class="check_text"> Customize your online store </span>
+              </div>
+              <div class="menu_content">
+                <p>
+                  Choose a theme and add your logo, colors, and images to reflect your brand. <span><a
+                      href="https://help.shopify.com/en/manual/online-store/themes/customizing-themes">Learn
+                      More</a></span>
+                </p>
+                <div class="menu_img"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
     </div>
-   </div>
+    </div>
   </section>
 
   <script src="./app.js"></script>
-  </body>
+</body>
+
 </html>
