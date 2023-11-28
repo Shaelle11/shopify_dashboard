@@ -97,21 +97,39 @@ document.addEventListener('DOMContentLoaded', function () {
     { buttonId: 'drop_menu3', menuId: 'menucontents3' },
     { buttonId: 'drop_menu4', menuId: 'menucontents4' },
     { buttonId: 'drop_menu5', menuId: 'menucontents5' },
-    // Add more dropdowns as needed
   ];
 
-  let currentlyOpenDropdown = dropdowns[0]; // Open the first dropdown by default
+  let currentlyOpenDropdown = dropdowns[0];
 
-  function openDropdownWithDelay({ buttonId, menuId }) {
+  function openDropdown({ buttonId, menuId }) {
     const dropBtn = document.getElementById(buttonId);
     const menuItem = document.getElementById(menuId);
 
-    setTimeout(function () {
-      menuItem.style.display = 'flex';
-      dropBtn.style.display = 'none';
-      dropBtn.setAttribute('aria-expanded', true);
-      currentlyOpenDropdown = { buttonId, menuId };
-    }, 500); // 2-second delay
+    menuItem.style.display = 'flex';
+    dropBtn.style.background = '#F3F3F3';
+    dropBtn.setAttribute('aria-expanded', true);
+    currentlyOpenDropdown = { buttonId, menuId };
+  }
+
+  function closeDropdown({ buttonId, menuId }) {
+    const dropBtn = document.getElementById(buttonId);
+    const menuItem = document.getElementById(menuId);
+
+    // Add a condition to check if the dropdown being closed is not the same as the one being clicked
+    if (currentlyOpenDropdown && currentlyOpenDropdown.buttonId !== buttonId) {
+      setTimeout(function () {
+        dropBtn.style.display = 'flex';
+        menuItem.style.display = 'none';
+        dropBtn.style.background = 'var(--Plain-White)';
+        dropBtn.setAttribute('aria-expanded', false);
+      }, 1000);
+    } else {
+      // If the dropdown being closed is the same as the one being clicked, close it without delay
+      dropBtn.style.display = 'flex';
+      menuItem.style.display = 'none';
+      dropBtn.style.background = 'var(--Plain-White)';
+      dropBtn.setAttribute('aria-expanded', false);
+    }
   }
 
   dropdowns.forEach(({ buttonId, menuId }) => {
@@ -121,47 +139,143 @@ document.addEventListener('DOMContentLoaded', function () {
     dropBtn.addEventListener('click', function () {
       const isOpen = menuItem.style.display === 'flex';
 
-      // Close the currently open dropdown with a 1-second delay
-      if (currentlyOpenDropdown) {
-        const currentButton = document.getElementById(currentlyOpenDropdown.buttonId);
-        const currentMenu = document.getElementById(currentlyOpenDropdown.menuId);
-
-        setTimeout(function () {
-          currentButton.style.display = 'flex';
-          currentMenu.style.display = 'none';
-          currentButton.setAttribute('aria-expanded', false);
-        }, 500);
-      }
-
-      // Open the current dropdown with a 2-second delay only if it's not already open
-      if (!isOpen) {
-        openDropdownWithDelay({ buttonId, menuId });
+      if (currentlyOpenDropdown && currentlyOpenDropdown.buttonId !== buttonId) {
+        closeDropdown(currentlyOpenDropdown);
       }
 
       if (!isOpen) {
+        openDropdown({ buttonId, menuId });
         menuItem.focus();
       }
     });
 
-    // Open the first dropdown by default
     if (currentlyOpenDropdown && currentlyOpenDropdown.buttonId === buttonId) {
-      openDropdownWithDelay({ buttonId, menuId });
+      openDropdown({ buttonId, menuId });
     }
   });
 });
 
-function handleImageClick() {
-  const image = document.getElementById('imageCheckbox');
-  image.classList.toggle('checkbox');
-  image.classList.toggle('.check_active');
-  Checked();
+
+
+let progress = 0;
+function openNextDropdown(currentButtonNumber) {
+  const nextButtonNumber = currentButtonNumber + 1;
+  if (nextButtonNumber <= 5) {
+    const nextDropdown = find(buttonId === `drop_menu${nextButtonNumber}`);
+    if (nextDropdown) {
+      closeDropdown({ buttonId: `drop_menu${currentButtonNumber}`, menuId: `menucontents${currentButtonNumber}` });
+      openNextDropdown(nextDropdown);
+    }
+  }
 }
 
-function Checked() {
-  const image = document.getElementById('imageCheckbox');  
-  image.classList.toggle('CheckedImage');
-  image.classList.toggle('check_active');
+// Modify your handleButtonClick function to call this function when the class changes
+function handleButtonClick(buttonNumber) {
+  const checkbox = document.querySelector(`#drop_menu${buttonNumber} .unchecked`);
+  const isChecked = checkbox.classList.toggle("loading-animation");
+
+  // Explicitly set the checked state of the checkbox
+  document.getElementById(`drop_menu${buttonNumber}`).setAttribute("aria-checked", isChecked);
+
+  // Update progress based on the state of the button
+  if (isChecked) {
+    progress++;
+  } else {
+    progress--;
+  }
+
+  // Ensure progress is within bounds (0 to 5)
+  progress = Math.min(5, Math.max(0, progress));
+
+  // Update progress text and width of progress bar
+  const progressText = document.getElementById("progress_text");
+  const progressBar = document.getElementById("progressbar");
+  progressText.textContent = `${progress}/5 Completed`;
+  progressBar.style.width = `${(progress / 5) * 100}%`;
+
+  // If the checkbox is checked, call the function to open the next dropdown
+  if (isChecked) {
+    openNextDropdown(buttonNumber);
+  } else {
+    // If the checkbox is unchecked, close the current dropdown
+    closeDropdown({ buttonId: `drop_menu${buttonNumber}`, menuId: `menucontents${buttonNumber}` });
+  }
 }
+
+// Modify your handleButtonClick function to call this function when the class changes
+// function handleButtonClick(buttonNumber) {
+//   const checkbox = document.querySelector(`#drop_menu${buttonNumber} .unchecked`);
+//   const isChecked = checkbox.classList.toggle("loading-animation");
+
+//   // Explicitly set the checked state of the checkbox
+//   document.getElementById(`drop_menu${buttonNumber}`).setAttribute("aria-checked", isChecked);
+
+//   // Update progress based on the state of the button
+//   if (isChecked) {
+//     progress++;
+//   } else {
+//     progress--;
+//   }
+
+//   // Ensure progress is within bounds (0 to 5)
+//   progress = Math.min(5, Math.max(0, progress));
+
+//   // Update progress text and width of progress bar
+//   const progressText = document.getElementById("progress_text");
+//   const progressBar = document.getElementById("progressbar");
+//   progressText.textContent = `${progress}/5 Completed`;
+//   progressBar.style.width = `${(progress / 5) * 100}%`;
+
+
+  
+// }
+
+
+
+// function toggleLabels() {
+//   const checkbox = document.getElementById("Checkbox");
+//   const checkedLabel = document.querySelector(".checked-label");
+//   const uncheckedLabel = document.querySelector(".unchecked-label");
+
+//   if (checkbox.checked) {
+//       checkedLabel.classList.toggle("active");
+//       uncheckedLabel.classList.toggle("active");
+//   } else {
+//       checkedLabel.classList.toggle("active");
+//       uncheckedLabel.classList.toggle("active");
+//   }
+// }
+
+// function ButtonClicks(){
+//   toggleLabels()
+//   handleButtonClick()
+// }
+
+
+
+
+// function handleImageClick() {
+//   const image = document.getElementById('imageCheckbox');
+//   image.classList.toggle('checkbox');
+//   image.classList.toggle('check_active');
+//   image.addEventListener('transitionend', handleTransitionEnd);
+//   setTimeout(Checked, 500); // Delay Checked function for 500 milliseconds (0.5 seconds)
+// }
+
+// function Checked() {
+//   const image = document.getElementById('imageCheckbox');
+//   image.classList.toggle('check_active');
+//   image.classList.toggle('CheckedImage');
+// }
+
+// function handleTransitionEnd() {
+//   const image = document.getElementById('imageCheckbox');
+//   image.removeEventListener('transitionend', handleTransitionEnd);
+//   image.classList.remove('check_active');
+// }
+
+
+
 
 
 
