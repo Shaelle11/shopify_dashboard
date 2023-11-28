@@ -18,26 +18,27 @@
         <div aria-label="Logo" aria-labelledby="Navigation" class="logo"></div>
         <div class="smaller-logo"></div>
       </a>
+    
       <div class="search">
         <form class="search_form" action="#">
-          <div class="search_icon">
-          </div>
+          <div class="search_icon" role="button" tabindex="0" aria-label="Search button"></div>
           <input type="text" placeholder="Search" aria-label="Enter search term" name="search">
         </form>
       </div>
-      <div class="notification">
-        <a aria-label="Notification bell container" aria-labelledby="notification" aria-controls="Notifications-message"
-          aria-haspopup="true" aria-expanded="false" id="notification-bell" class="contain-bell">
+    
+      <div aria-label="Notification" class="notification">
+        <a aria-label="Notification bell container" aria-labelledby="notification" aria-controls="Notifications-dropdown"
+          aria-haspopup="true" aria-expanded="false" id="notification-bell" class="contain-bell" role="button" tabindex="0">
           <button aria-label="notification-bell" class="bell"></button>
+    
           <div aria-label="notifications " aria-labelledby="Notification-bell" tabindex="-1" role="menu"
             id="notification-message" class="notification_message">
             <div class="alerts">
-              <h4 role="Alert">Alerts</h4>
+              <h4 role="alert">Alerts</h4>
               <div class="alert-icons">
-                <div class="funnel-icon">
-                </div>
-
-                <button role="checkbox" class="check"></button>
+                <div class="funnel-icon"></div>
+    
+                <button role="checkbox" aria-checked="false" class="check"></button>
               </div>
             </div>
             <div class="message_contain">
@@ -45,8 +46,9 @@
             </div>
           </div>
         </a>
+    
         <div class="user" id="user-name" aria-haspopup="true" aria-expanded="false" aria-controls="profile">
-          <button class="user_contain">
+          <button class="user_contain" role="button" tabindex="0">
             <div class="user_name">
               Davii Collections
             </div>
@@ -54,13 +56,15 @@
               DC
             </div>
           </button>
-          <button class="user_initials_res">
+    
+          <button class="user_initials_res" role="button" tabindex="0">
             DC
           </button>
         </div>
       </div>
-      <a id="profile" class="profile_view">
-        <div class="profile_section_1">
+    
+      <a id="profile" class="profile_view" role="button" tabindex="0">
+        <div class="profile_section_1" role="menu">
           <div role="menuitem" class="profile_container">
             <div class="profile_name">
               <div class="user_initials">
@@ -72,45 +76,50 @@
             </div>
             <div class="downward_arrow"></div>
           </div>
+    
           <div role="menu-item" class="profile_container2">
             <div class="home"></div>
             <p>All stores</p>
           </div>
         </div>
+    
         <div class="line"></div>
-        <div role="menuitem" class="profile_items">
-          <li role="menuitem" class="profile_item"><button>Help Center</button></li>
-          <li role="menuitem" class="profile_item"><button>Changelog</button></li>
-          <li role="menuitem" class="profile_item"><button>Community Forums</button></li>
-          <li role="menuitem" class="profile_item"><button>Hire a Shopify Partner</button></li>
-          <li role="menuitem" class="profile_item"><button>Keyboard Shortcuts</button></li>
+    
+        <div aria-label="menu items" role="menuitem" class="profile_items">
+          <li role="menuitem" class="profile_item"><button role="menuitem">Help Center</button></li>
+          <li role="menuitem" class="profile_item"><button role="menuitem">Changelog</button></li>
+          <li role="menuitem" class="profile_item"><button role="menuitem">Community Forums</button></li>
+          <li role="menuitem" class="profile_item"><button role="menuitem">Hire a Shopify Partner</button></li>
+          <li role="menuitem" class="profile_item"><button role="menuitem">Keyboard Shortcuts</button></li>
         </div>
+    
         <div class="line"></div>
-        <button class="user_details">
+    
+        <button class="user_details" role="menuitem" tabindex="0">
           <h4>David Micheal</h4>
           <p>davidmicheal@gmail.com</p>
         </button>
-        <li class="profile_item_set"><button>Manage account</button></li>
-        <li class="profile_item_set"><button>Log out</button></li>
-        </div>
-      </a>
-
+    
+        <li class="profile_item_set"><button role="menuitem">Manage account</button></li>
+        <li class="profile_item_set"><button role="menuitem">Log out</button></li>
       </div>
+    </a>
     </nav>
+    
   </header>
-  <section class="hero">
-    <div class="subscribe" id="alert-subscription" role="alert">
+  <main class="hero">
+    <article class="subscribe" id="alert-subscription" role="alert">
       <div class="subscription_message">
         <p>Extend your trial for $1/month for 3 months on select plans.</p>
-
         <div class="sub_right">
           <button aria-label="Select Plan" class="select_plan">Select Plan</button>
           <button aria-labelledby="Remove Subscription" aria-label="Remove Subscription" aria-controls="cancel-button"
             class="cancel-button" onclick="closeAlert()" aria-label="close-alert"></button>
         </div>
       </div>
-      <button class="select_plan_res">Select Plan</button>
-    </div>
+      <button class="select_plan_res" aria-label="Select Plan"></button>
+    </article>
+  
     <div aria-hidden="true" role="menu" class="Setup_guide" id="setup_guide">
       <div class="first_child">
         <div class="Setup_text">
@@ -118,145 +127,142 @@
           <p>Use this personalized guide to get your store up and running.</p>
         </div>
         <button id="drop_btn" aria-labelledby="Setup Guide" aria-label="dropdown button" class="drop_page_btn"
-          onclick="switchImage()"></button>
+          onclick="switchImage()" role="button"></button>
       </div>
-
+  
       <div class="progress_monitor">
         <p id="progress_text" class="progress_text">1/5 Completed</p>
         <div id="progress" class="progress">
           <div id="progressbar" class="progressbar"></div>
         </div>
       </div>
+  
       <div aria-haspopup="true" aria-hidden="true" aria-labelledby="setup_guide" aria-label="setup menu" role="menu"
         id="Setup_menu" class="Setup_menu">
+  
+        <!-- Menu Item 1 -->
         <div aria-labelledby="Setup_menu" aria-label="menu-items" role="menuitem" class="setupmenu-item">
           <button class="menuitem" id="drop_menu1" aria-label="menu-item" role="menubar" aria-labelledby="menu-item"
             onclick="toggleDropdown('menucontents1')">
-            <div id="Checkbox" class="checkbox" onclick="handleButtonClick(1)">
-              <input type="checkbox" name="checkbox" id="imagecheckbox">
-              <label class="unchecked" for="checked"></label>
+            <div id="Checkbox1" class="checkbox" onclick="handleButtonClick(1)">
+              <input type="checkbox" name="checkbox" id="imagecheckbox1">
+              <label class="unchecked" for="checked1"></label>
             </div>
             <span class="check_text"> Customize your online store </span>
           </button>
-
+  
           <div class="menu_contents" id="menucontents1">
-
             <div class="menu_content">
               <p>
-                Choose a theme and add your logo, colors, and images to reflect your brand. <span><a
-                    href="https://help.shopify.com/en/manual/online-store/themes/customizing-themes">Learn
-                    More</a></span>
+                Choose a theme and add your logo, colors, and images to reflect your brand. <a
+                  href="https://help.shopify.com/en/manual/online-store/themes/customizing-themes">Learn More</a>
               </p>
-              <button class="custom_btn">Customize theme</button>
-
+              <button class="custom_btn" aria-label="Customize theme">Customize theme</button>
             </div>
             <div class="menu_img"></div>
           </div>
         </div>
+  
+        <!-- Menu Item 2 -->
         <div aria-labelledby="Setup_menu" aria-label="menu-items" role="menuitem" class="setupmenu-item">
           <button class="menuitem" id="drop_menu2" aria-label="menu-item" role="menubar" aria-labelledby="menu-item"
             onclick="toggleDropdown('menucontents2')">
-            <div id="Checkbox" class="checkbox" onclick="handleButtonClick(2)">
-              <input type="checkbox" name="checkbox" id="imagecheckbox">
-              <label class="unchecked" for="checked"></label>
+            <div id="Checkbox2" class="checkbox" onclick="handleButtonClick(2)">
+              <input type="checkbox" name="checkbox" id="imagecheckbox2">
+              <label class="unchecked" for="checked2"></label>
             </div>
             <span class="check_text"> Add your first product </span>
           </button>
-
+  
           <div class="menu_contents" id="menucontents2">
-
             <div class="menu_content">
               <p>
-                Write a description, add photos, and set pricing for the products you plan to sell. Learn more
-                <span><a href="https://help.shopify.com/manual/products/add-update-products">Learn
-                    More</a></span>
+                Write a description, add photos, and set pricing for the products you plan to sell. <a
+                  href="https://help.shopify.com/manual/products/add-update-products">Learn More</a>
               </p>
               <div class="Products">
-                <button class="custom_btn">Add Product</button>
-                <button class="Import">Import Product</button>
+                <button class="product_custom_btn" aria-label="Add Product">Add Product</button>
+                <button class="Import" aria-label="Import Product">Import Product</button>
               </div>
-
             </div>
-            <button>
-
-            </button>
+            <div class="productimg"></div>
           </div>
         </div>
+  
+        <!-- Menu Item 3 -->
         <div aria-labelledby="Setup_menu" aria-label="menu-items" role="menuitem" class="setupmenu-item">
           <button class="menuitem" id="drop_menu3" aria-label="menu-item" role="menubar" aria-labelledby="menu-item"
             onclick="toggleDropdown('menucontents3')">
-            <div id="Checkbox" class="checkbox" onclick="handleButtonClick(3)">
-              <input type="checkbox" name="checkbox" id="imagecheckbox">
-              <label class="unchecked" for="checked"></label>
+            <div id="Checkbox3" class="checkbox" onclick="handleButtonClick(3)">
+              <input type="checkbox" name="checkbox" id="imagecheckbox3">
+              <label class="unchecked" for="checked3"></label>
             </div>
-            <span class="check_text"> Customize your online store </span>
+            <span class="check_text"> Add a custom Domain </span>
           </button>
-
+  
           <div class="menu_contents" id="menucontents3">
-
             <div class="menu_content">
               <p>
-                Choose a theme and add your logo, colors, and images to reflect your brand. <span><a
-                    href="https://help.shopify.com/en/manual/online-store/themes/customizing-themes">Learn
-                    More</a></span>
+                Your current domain is 222219.myshopify.com but you can add a custom domain to help customers find your
+                online store.<a href="https://help.shopify.com/en/manual/domains">Learn More</a>
               </p>
-              <button class="custom_btn">Customize theme</button>
-
+              <button class="custom_btn" aria-label="Add Domain">Add Domain</button>
             </div>
-            <div class="menu_img"></div>
+            <div class="customimg"></div>
           </div>
         </div>
+  
+        <!-- Menu Item 4 -->
         <div aria-labelledby="Setup_menu" aria-label="menu-items" role="menuitem" class="setupmenu-item">
           <button class="menuitem" id="drop_menu4" aria-label="menu-item" role="menubar" aria-labelledby="menu-item"
             onclick="toggleDropdown('menucontents4')">
-            <div id="Checkbox" class="checkbox" onclick="handleButtonClick(4)">
-              <input type="checkbox" name="checkbox" id="imagecheckbox">
-              <label class="unchecked" for="checked"></label>
+            <div id="Checkbox4" class="checkbox" onclick="handleButtonClick(4)">
+              <input type="checkbox" name="checkbox" id="imagecheckbox4">
+              <label class="unchecked" for="checked4"></label>
             </div>
-            <span class="check_text"> Customize your online store </span>
+            <span class="check_text"> Name your Store </span>
           </button>
-
+  
           <div class="menu_contents" id="menucontents4">
-
             <div class="menu_content">
               <p>
-                Choose a theme and add your logo, colors, and images to reflect your brand. <span><a
-                    href="https://help.shopify.com/en/manual/online-store/themes/customizing-themes">Learn
-                    More</a></span>
+                Your temporary store name is currently Davii collections. The store name appears in your admin and your
+                online store <a
+                  href="https://help.shopify.com/en/manual/intro-to-shopify/initial-setup/setup-business-settings#set-or-change-your-online-store-name-and-legal-business-name">Learn
+                  More</a>
               </p>
-              <button class="custom_btn">Customize theme</button>
-
+              <button class="custom_btn" aria-label="Name store">Name store</button>
             </div>
-            <div class="menu_img"></div>
+            <div class="storeimg"></div>
           </div>
         </div>
+  
+        <!-- Menu Item 5 -->
         <div aria-labelledby="Setup_menu" aria-label="menu-items" role="menuitem" class="setupmenu-item">
           <button class="menuitem" id="drop_menu5" aria-label="menu-item" role="menubar" aria-labelledby="menu-item"
             onclick="toggleDropdown('menucontents5')">
-            <div id="Checkbox" class="checkbox" onclick="handleButtonClick(5)">
-              <input type="checkbox" name="checkbox" id="imagecheckbox">
-              <label class="unchecked" for="checked"></label>
+            <div id="Checkbox5" class="checkbox" onclick="handleButtonClick(5)">
+              <input type="checkbox" name="checkbox" id="imagecheckbox5">
+              <label class="unchecked" for="checked5"></label>
             </div>
-            <span class="check_text"> Customize your online store </span>
+            <span class="check_text"> Setup a payment provider </span>
           </button>
-
+  
           <div class="menu_contents" id="menucontents5">
-
             <div class="menu_content">
               <p>
-                Choose a theme and add your logo, colors, and images to reflect your brand. <span><a
-                    href="https://help.shopify.com/en/manual/online-store/themes/customizing-themes">Learn
-                    More</a></span>
+                Choose a payment provider to start accepting payments. You’ll need to create an account with the payment
+                provider and set it up with your Shopify store. <a href="https://help.shopify.com/en/manual/payments"> Learn
+                  More</a>
               </p>
-              <button class="custom_btn">Customize theme</button>
-
+              <button class="custom_btn" aria-label="Set up payment">Set up payment</button>
             </div>
-            <div class="menu_img"></div>
+            <div class="provideimg"></div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </main>  
   <script src="./app.js"></script>
 </body>
 

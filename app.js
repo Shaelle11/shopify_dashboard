@@ -115,7 +115,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const dropBtn = document.getElementById(buttonId);
     const menuItem = document.getElementById(menuId);
 
-    // Add a condition to check if the dropdown being closed is not the same as the one being clicked
     if (currentlyOpenDropdown && currentlyOpenDropdown.buttonId !== buttonId) {
       setTimeout(function () {
         dropBtn.style.display = 'flex';
@@ -124,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
         dropBtn.setAttribute('aria-expanded', false);
       }, 1000);
     } else {
-      // If the dropdown being closed is the same as the one being clicked, close it without delay
+   
       dropBtn.style.display = 'flex';
       menuItem.style.display = 'none';
       dropBtn.style.background = 'var(--Plain-White)';
@@ -169,35 +168,32 @@ function openNextDropdown(currentButtonNumber) {
   }
 }
 
-// Modify your handleButtonClick function to call this function when the class changes
+
 function handleButtonClick(buttonNumber) {
   const checkbox = document.querySelector(`#drop_menu${buttonNumber} .unchecked`);
   const isChecked = checkbox.classList.toggle("loading-animation");
 
-  // Explicitly set the checked state of the checkbox
   document.getElementById(`drop_menu${buttonNumber}`).setAttribute("aria-checked", isChecked);
 
-  // Update progress based on the state of the button
   if (isChecked) {
     progress++;
   } else {
     progress--;
   }
 
-  // Ensure progress is within bounds (0 to 5)
   progress = Math.min(5, Math.max(0, progress));
 
-  // Update progress text and width of progress bar
+ 
   const progressText = document.getElementById("progress_text");
   const progressBar = document.getElementById("progressbar");
   progressText.textContent = `${progress}/5 Completed`;
   progressBar.style.width = `${(progress / 5) * 100}%`;
 
-  // If the checkbox is checked, call the function to open the next dropdown
+
   if (isChecked) {
     openNextDropdown(buttonNumber);
   } else {
-    // If the checkbox is unchecked, close the current dropdown
+  
     closeDropdown({ buttonId: `drop_menu${buttonNumber}`, menuId: `menucontents${buttonNumber}` });
   }
 }
