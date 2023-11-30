@@ -42,9 +42,9 @@ document.addEventListener('DOMContentLoaded', function () {
     profileDrop.style.display = isOpen ? 'none' : 'block';
     userName.setAttribute('aria-expanded', !isOpen);
 
-    if (!isOpen) {
-      profileDrop.focus();
-    }
+    // if (!isOpen) {
+    //   profileDrop.focus();
+    // }
   })
 
   document.addEventListener('keydown', function (event) {
