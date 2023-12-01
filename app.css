@@ -507,15 +507,16 @@ nav {
 }
 
 .contain-bell {
-    align-items: center;
+    /* align-items: center; */
     background-color: var(--PrimaryGrey-200);
     border-radius: 8px;
+    place-content: center;
     width: 32px;
     height: 32px;
-    display: inline-flex;
-    padding: 6px;
+    display: grid;
+    /* padding: 6px; */
     position: relative;
-    display: inline-block;
+    cursor: pointer;
 }
 
 .contain-bell:hover {
@@ -555,12 +556,13 @@ nav {
 .notification_message {
     align-items: center;
     position: absolute;
-    top: 170%;
+    top: 56px;
+    right: -170px;
+  width: calc(100vw - 32px);
+    max-width: 383px;
     background-color: var(--Plain-White);
     display: none;
-    z-index: 2;
-    transform: translateX(-15vw);
-    width: 383px;
+    z-index: 3;
     height: auto;
     padding: 16px;
     flex-direction: column;
@@ -1872,7 +1874,8 @@ nav {
     .notification_message {
         width: 358px;
         height: 138px;
-        transform: translateX(-78.3vw);
+        right: -330px;
+        /* transform: translateX(-78.3vw); */
 
     }
 
