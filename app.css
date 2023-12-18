@@ -2020,6 +2020,9 @@ transform: translate(-35%, 85%);
     .productimg {
         display: none;
     }
+    .Products {
+        margin-left: 1rem;
+    }
 
     .provideimg {
         display: none;
